@@ -1,0 +1,112 @@
+@import '../../styles/global.scss';
+
+
+$footerColor:#D9DBE1;
+.container{
+    @include flexRow(flex-start,space-around);
+    width: 100vw;
+    min-height: 250px;
+    padding: 50px;
+    color: $footerColor;
+    background-color: $primaryColor;
+    @include content;
+
+    .aboutPage{
+        @include flexcol(flex-start,center);
+        gap:15px;
+        width:200px;
+        .heading{
+            @include heading;
+            padding: 10px 0;
+            color: $baseColor;
+            :last-child{
+                color: $secondaryColor;
+            }
+        }
+        .socialMedia{
+            @include flexRow();
+            gap:15px;
+
+            span{
+                cursor: pointer;
+                :hover{
+                    color: $secondaryColor;
+                }
+            }
+        }
+        
+    }
+    
+    .menu{
+        min-width: 185px;
+        .subHeading{
+            @include subHeading;
+            padding: 10px 0;
+            color: $baseColor;
+
+        }
+        .menuItems{
+            @include flexcol(flex-start);
+            gap: 15px;
+            :hover{
+                color: $secondaryColor;
+            }
+            :first-child{
+                padding-top: 10px;
+            }
+        }
+    }
+    .newsLetter{
+        .label{
+            @include subHeading;
+            padding: 10px 0;
+            color: $baseColor;
+        }
+        .emailContainer{
+            @include flexRow();
+            gap: 10px;
+            padding: 5px 10px;
+            background-color: rgb(198,198,198);
+            border-radius: 8px;
+
+            button{
+                background: none;
+                border: none;
+            }
+            input{
+                background: transparent;
+                border: none;
+                color: black;
+                outline: none;
+                padding: 5px;
+                font-weight: bold;
+            }
+            svg{
+                font-size: 14px;
+                transform: rotate(-45deg);
+                color: $secondaryColor;
+            }
+
+        }
+    }
+    @media only screen and (max-width:950px){
+        @include flexRow(flex-start,flex-start,30);
+        flex-wrap:wrap ;
+        width: 100%;
+        
+        >div:not(.newsLetter){
+            width: 45%;
+        }
+        .menu{
+            .menuItems{
+                @include flexRow(flex-start,flex-start,15);
+                flex-wrap: wrap;
+            }
+        }
+    }
+    @media only screen and (max-width:600px){
+       >div:not(.newsLetter){
+        width: 90%;
+       }
+    }
+}

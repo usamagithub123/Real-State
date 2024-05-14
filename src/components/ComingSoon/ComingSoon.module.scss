@@ -1,0 +1,39 @@
+@import '../../styles/global.scss';
+
+.container{
+    @include flexRow();
+    height: 70hv;
+
+    .content{
+        //text-align: center;
+        @include flexcol(center,center);
+
+        .title{
+            @include heading;
+            font-size: 2rem;
+            margin: 2rem 0;
+        }
+        .description{
+            @include subHeading;
+            color: #777;
+        }
+        img{
+            width: 70%;
+            object-fit: cover;
+        }
+        button{
+            border: none;
+            background-color: $secondaryColor;
+            font-size: 1rem;
+            padding: 0.8rem 2rem;
+            margin: 20px 0;
+            color: $baseColor;
+            border-radius: 5px;
+            cursor: pointer;
+
+            &:hover{
+                background-color: $primaryColor;
+            }
+        }
+    }
+}

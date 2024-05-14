@@ -1,0 +1,44 @@
+@import '../../styles/global.scss';
+
+.container{
+    @include flexcol();
+    padding: 2rem 0;
+    min-height: 70vh;
+    background-color: $pink;
+  
+    .details{
+        text-align: center;
+        margin-bottom: 2rem;
+
+        .heading{
+            @include heading;
+            margin-bottom: 1rem;
+            color: $primaryColor;
+
+        }
+        .description{
+            @include subHeading;
+        }
+    }
+    .info{
+        @include flexcol();
+        gap:1rem;
+        margin-top: 3rem;
+        min-width: 400px;
+
+        .subHeading{
+            @include subHeading;
+
+        }
+        .infoItem{
+            @include flexRow();
+          //  min-height: 15vh;
+            width: 80%;
+           @include content;
+            .label{
+                min-width: max-content;
+            }
+            
+        }
+    }
+}

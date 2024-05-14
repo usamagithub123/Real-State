@@ -1,0 +1,170 @@
+@import '../../styles/global.scss';
+@import '../../styles/mixins.scss';
+
+.container{
+    @include content();
+     .header{
+        padding: 30px 20px;
+        @include flexRow();
+        gap:10%;
+
+        .title{
+            @include heading;
+            width: max-content;
+            color: $primaryColor;
+            span{
+                border-bottom: 5px solid $secondaryColor;
+                margin-right: 10px;
+            }
+        }
+
+        .tabs
+        {     @include flexRow();
+            flex-wrap: wrap;
+            gap:10px;
+
+           
+         .tab{ @include flexRow();
+            gap:10px;
+            border-radius: 30px;
+            border: 1px solid #333;
+            cursor: pointer;
+            padding: 10px 20px;
+           }
+           .activeTab{
+            border: none;
+            background-color: $secondaryColor;
+            color: $baseColor;
+           }
+        }
+        .scrollButtons{
+            @include flexRow();
+            gap:30px;
+
+            .right, .left{
+                width: 35px;
+                height: 35px;
+            }
+            .left{
+                transform: rotate(180deg);
+            }
+            .activeArrow{
+                background-color: $secondaryColor;
+                color: $baseColor;
+                border-radius: 30px;
+            }
+        }
+     }
+
+     .houses{
+        @include flexRow(center,flex-start,25);
+        padding: 15px;
+        overflow-x:auto ;
+        scroll-behavior: smooth;
+
+
+        .building{
+          @include flexcol(flex-start,flex-start,5);
+          max-width: 280px;
+          flex: 0 0 auto;
+          padding: 10px;
+          border-radius: 10px;
+          border: 1px solid grey;
+
+          img{
+            object-fit: cover;
+            align-self: center;
+            width: 100%;
+          }
+          .price{
+            @include heading;
+            padding: 15px;
+            position: relative;
+
+            :first-child{
+                position: absolute;
+                margin-left: -10px;
+            }
+            span{
+                @include content
+            }
+          }
+          .interest{
+            padding: 10px;
+            @include content;
+
+          }
+          .viewMore{
+            @include flexRow();
+            background: none;
+            border: none;
+            width: 100%;
+
+            .section{
+                @include flexRow();
+                justify-content: center;
+                gap: 10px;
+                align-items: center;
+                background-color: $secondaryColor;
+                color: $baseColor;
+                padding: 14px 20px;
+                border-radius: 10px;
+              
+                span{
+                  
+    
+                    svg{
+                        font-size: 12px;
+                    }
+                }
+            }
+       
+          }
+          .details{
+            padding: 10px;
+            width: 100%;
+            @include flexRow(center,space-between);
+            .label{
+                @include subHeading();
+                max-width: 60%;
+            }
+            .otherDetails{
+                @include flexRow();
+                font-size: 8px;
+                gap: 10px;
+
+                .section{
+                    @include flexcol();
+                    gap:5px
+
+                    svg{
+                        font-size: 15px;
+
+                    }
+                }
+            }
+          }
+        
+        }
+          .activeBuilding{
+            background-color: #fff;
+            border-radius: 10px;
+            border-color: $secondaryColor ;
+            transform: translateY(-15px);
+            box-shadow: inset 0 0 6px rgba(0,0,0.3);
+        }
+     }
+     @media only screen and (max-width:600px){
+        .header{
+            flex-direction:  column;
+            gap: 30px;
+        }
+        .tabs{
+            font-size: 10px;
+            gap: 6px;
+            .tab{
+                padding:5px ;
+            }
+        }
+     }
+}

@@ -1,0 +1,100 @@
+@import '../../styles/global.scss';
+
+.container{
+    @include flexcol();
+    position: relative;
+
+    .sectionOne{
+        background-image: url('../../assets/home.png');
+        width: 100%;
+        min-height: 60vh;
+        height: auto;
+        background-size: cover;
+        padding: 10%;
+        @include flexcol(flex-start,center);
+        gap: 1rem;
+        color: $primaryColor;
+     .title{
+        @include heading;
+        font-size: 3rem;
+
+     }
+     .heading{
+        @include heading;
+     }
+     .subHeading{
+        @include flexRow(center,center,5);
+        @include subHeading;
+        color: $secondaryColor;
+        cursor: pointer;
+     }
+    }
+    .sectionTwo{
+      width: 100%;
+      background-color: #ffede7;
+      .heading{
+         @include heading;
+         text-align: center; 
+         padding-top: 2rem;
+      }
+      .steps{
+         @include flexRow(center,space-around,20);
+         padding: 1rem;
+
+        .processContainer{
+         @include flexRow();
+         min-height: 15vh;
+         min-width: 25%;
+         gap: 25px;
+
+         .process{
+            @include flexRow();
+             gap :25px;
+            .subSection{
+               @include flexcol(flex-start,center,10);
+               .subHeading{
+                  @include subHeading;
+               }
+            }
+         }
+        } 
+        @media only screen and (max-width:900px) {
+         padding: 2rem;
+         @include flexcol(flex-start,center,25px);
+          
+         .processContainer{
+            flex-direction: column;
+            align-items: flex-start;
+         }
+         svg{
+            margin-left: 20px;
+            transform: rotate(90deg);
+         }
+       }
+
+      }
+     
+    }
+    .sectionThree{
+      background-color: #ffede7;
+      width: 100%;
+      @include flexcol();
+      min-height: 20vh;
+      gap: 1rem;
+      position: relative;
+
+      .banner{
+         width: 80%;
+         color: $baseColor;
+         background-color: $primaryColor;
+         padding: 1rem;
+         border-radius: 5px;
+         position: absolute;
+         bottom: 3rem;
+
+      }
+      .heading{
+         @include heading;
+      }
+    }
+}

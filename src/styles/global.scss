@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import './mixins.scss';
+
+$primaryColor:#10375c;
+$secondaryColor:#FF5722;
+$baseColor:#ffff;
+$pink:#ffede7;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+}
